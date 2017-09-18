@@ -10,13 +10,13 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class SearchService{
     private _url: string = "https://api.github.com/users/";
-    private _urlkey: string = "https://api.github.com/search/repositories?q=";
+    private _urlkey: string = "https://api.themoviedb.org/3/search/movie?api_key=cf8441d05e8376c04c2feb36bd5b492f&language=en-US&page=1&include_adult=false&query=";
 
     constructor(private http: Http){}
-    public result : Array<Object>;
+
     searchUsers(term: string){
 
-        var apiLink = this._url + (term)  + '/repos';
+        var apiLink = this._url + (term) ;
 
         return this.http.get(apiLink)
                     .map((response:Response) => response.json())
@@ -25,9 +25,9 @@ export class SearchService{
 
 
     searchKeyword(term: string){
+    
+        var apiLinkkey = this._urlkey + (term) + '/repos';
         
-        const apiLinkkey = this._urlkey + (term) + '&per_page=20';
-        console.log(apiLinkkey);
                 return this.http.get(apiLinkkey)
                             .map((response:Response) => response.json())
                             .catch(this.errorHandler);
