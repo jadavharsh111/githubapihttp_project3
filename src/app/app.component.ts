@@ -5,9 +5,18 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template:`
             <h1>GitHub</h1>
-            <a routerLink="/findrepo">Find Repo</a>
-            <a routerLink="/findkeyword">Find Keyword</a>
-            <router-outlet></router-outlet>
+            
+            
+            <nav class="navbar navbar-default">
+              
+                
+                <ul class="nav navbar-nav">
+                  <li class="active"><a routerLink="/findrepo">Find Repo</a></li>
+                  <li><a routerLink="/findkeyword">Find Keyword</a></li>
+                  <router-outlet></router-outlet>
+                </ul>
+              
+          </nav>           
   `,
   providers: [SearchService]
 })
